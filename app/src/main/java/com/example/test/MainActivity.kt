@@ -40,32 +40,25 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Box(
         modifier = Modifier
             .size(400.dp),
-
-
-
             ){
-
         Text(
             text = "Hello $name!",
             color = Color.Blue,
             fontSize = 30.sp,
             modifier = Modifier.align(Alignment.BottomCenter)
-
             )
         Text(
             text = "Some other text !",
             color = Color.Blue,
             fontSize = 30.sp,
-
             )
     }
-
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     TestTheme {
-        Greeting("STEVEN")
+        Greeting("STEVEN Kariuki")
     }
 }
