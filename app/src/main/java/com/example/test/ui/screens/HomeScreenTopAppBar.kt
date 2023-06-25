@@ -32,7 +32,7 @@ import com.example.test.R
 import kotlinx.coroutines.launch
 
 @Composable
-fun HomeScreenTopAppBar(onToggle: () -> Unit) {
+fun HomeScreenTopAppBar() {
 
     Column() {
         Row(
@@ -43,7 +43,6 @@ fun HomeScreenTopAppBar(onToggle: () -> Unit) {
         ) {
             Icon(
                 modifier = Modifier
-                    .padding(16.dp)
                     .size(24.dp)
                     .graphicsLayer {
                         rotationY = 180f
