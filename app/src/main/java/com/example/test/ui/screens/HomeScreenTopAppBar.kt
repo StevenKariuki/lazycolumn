@@ -1,6 +1,7 @@
 package com.example.test.ui.screens
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.isSystemInDarkTheme
 import androidx.compose.foundation.layout.Arrangement
@@ -22,9 +23,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -34,7 +39,10 @@ import kotlinx.coroutines.launch
 @Composable
 fun HomeScreenTopAppBar() {
 
-    Column() {
+
+    Column(
+
+    ) {
         Row(
             modifier = Modifier
                 .fillMaxWidth(),
@@ -51,6 +59,10 @@ fun HomeScreenTopAppBar() {
                 painter = painterResource(id = R.drawable.menu),
                 contentDescription = null,
             )
+            Text(
+                text = "Lets Shop!",
+                style = MaterialTheme.typography.bodyLarge
+            )
             Image(
                 modifier = Modifier
                     .size(40.dp)
@@ -63,7 +75,7 @@ fun HomeScreenTopAppBar() {
 
         Column(modifier = Modifier.padding(horizontal = 16.dp)) {
             Text(
-                text = "Our",
+                text = "Welcome to Vi_brant's dealership",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.displayMedium.copy(
                     fontSize = 24.sp
@@ -71,7 +83,7 @@ fun HomeScreenTopAppBar() {
             )
 
             Text(
-                text = "Products",
+                text = "Our Products",
                 textAlign = TextAlign.Start,
                 style = MaterialTheme.typography.titleMedium.copy(
                     fontSize = 24.sp

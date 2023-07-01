@@ -6,14 +6,18 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -27,17 +31,24 @@ import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.Font
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.test.R
 
 @OptIn(ExperimentalMaterial3Api::class)
+
+
 @Composable
 fun HomeScreen() {
+
     Scaffold( // TODO 6 learn about scaffold https://www.youtube.com/shorts/UoK2i5CLsZc
         topBar = {
             HomeScreenTopAppBar()
         }
+
     ) { paddingValues ->
         LazyColumn( // TODO 5 learn about list
             modifier = Modifier
@@ -50,6 +61,7 @@ fun HomeScreen() {
     }
 }
 
+
 //TODO customize this card
 @Composable
 private fun CustomizeThisCard(uiModel: UIModel) {
@@ -57,25 +69,22 @@ private fun CustomizeThisCard(uiModel: UIModel) {
         modifier = Modifier
             .fillMaxWidth()
             .padding(20.dp)
-            .background(Color.Blue)
-            .border(10.dp, Color.Blue)
-            .clip(RoundedCornerShape(80.dp)),
-
-    ) {
-        Row( //TODO 1
+            .clip(RoundedCornerShape(12.dp)),
+        ) {
+        Column( //TODO 1
             modifier = Modifier //TODO 2 about compose modifiers https://www.youtube.com/watch?v=XCuC_p3E0qo
                 .fillMaxWidth()
-                .padding(16.dp)
+                .padding(16.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
 
             val image: Painter = painterResource(id = uiModel.image)
             Image(
                 modifier = Modifier
-                    .size(80.dp, 80.dp)
-                    .padding(2.dp)
-                    .clip(RoundedCornerShape(20.dp))
-                    .border(2.dp, Color.Blue)
-                    .clip(RoundedCornerShape(16.dp)),
+                    .fillMaxWidth()
+                    .height(250.dp)
+                    .padding(16.dp)
+                    .clip(RoundedCornerShape(20.dp)),
                 painter = image,
                 alignment = Alignment.CenterStart,
                 contentDescription = "",
@@ -85,9 +94,17 @@ private fun CustomizeThisCard(uiModel: UIModel) {
                 modifier = Modifier
                     .padding(start = 12.dp)
             ) {
-                Text(text = uiModel.name, modifier = Modifier.clickable {
-
-                } ) // TODO 4 learn about Styling text https://www.youtube.com/watch?v=nm_LNJWHi9A
+                Text(
+                    text = uiModel.name,
+                    modifier = Modifier
+                        .clickable {}
+                )
+                Text(
+                    text = uiModel.type,)
+            // TODO 4 learn about Styling text https://www.youtube.com/watch?v=nm_LNJWHi9A
+                Button(onClick = { /*TODO*/ }) {
+                    Text(text = "Click me")
+                }
             }
 
         }
@@ -97,48 +114,62 @@ private fun CustomizeThisCard(uiModel: UIModel) {
 val basketBallItemsList = listOf(
     UIModel(
         name = "View",
-        image = R.drawable.vituofly
+        type = "leather Ball",
+        image = R.drawable.b10
+    ),
+    UIModel(
+        name = "Shoe ",
+        type = "Legit ball",
+        image = R.drawable.b1
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Basketball hoops",
+        image = R.drawable.b2
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Basketball rims",
+        image = R.drawable.b3
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
-    ),    UIModel(
-        name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Basketball rocks",
+        image = R.drawable.b4
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Great sport",
+        image = R.drawable.b5
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Basketball wilson",
+        image = R.drawable.b6
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
-    ),    UIModel(
-        name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Long lasting balls",
+        image = R.drawable.b7
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "leather",
+        image = R.drawable.b8
     ),
     UIModel(
         name = "Shoe 1",
-        image = R.drawable.vituofly
+        type = "Lit basketball balls",
+        image = R.drawable.b9
     ),
     UIModel(
         name = "Shoe 1",
+        type = "leather",
+        image = R.drawable.b10
+    ),
+    UIModel(
+        name = "Shoe",
+        type = "leather",
         image = R.drawable.vituofly
     ),
 )
