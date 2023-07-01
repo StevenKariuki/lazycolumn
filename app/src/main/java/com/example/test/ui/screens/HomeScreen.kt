@@ -4,14 +4,19 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
+import androidx.compose.foundation.horizontalScroll
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -50,71 +55,248 @@ fun HomeScreen() {
         }
 
     ) { paddingValues ->
-        LazyColumn( // TODO 5 learn about list
+        LazyColumn(
             modifier = Modifier
                 .padding(paddingValues)
+            ,
+//            verticalArrangement = Arrangement.spacedBy(16.dp)
         ) {
-            items(basketBallItemsList) {uiModel ->
-                CustomizeThisCard(uiModel)
+
+            item {
+                Text(
+                    text = "BASKETBALL BALLS",
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .padding(20.dp,12.dp,12.dp)
+                )
+                Text(
+                    text = "The best baskeketballs avaible.",
+                    modifier = Modifier
+                        .padding(20.dp,2.dp,2.dp))
+                LazyRow( // TODO 5 learn about list
+                    modifier = Modifier
+                ) {
+                    items(basketBallItemsList) { uiModel ->
+                        CustomizeThisCard(uiModel)
+                    }
+                }
+            }
+            item {
+                Text(
+                    text = "BASKETBALL JERSEYS",
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .padding(20.dp,12.dp,12.dp)
+                )
+                Text(
+                    text = "The best baskeketball's Jerseys avaible.",
+                    modifier = Modifier
+                        .padding(20.dp,2.dp,2.dp))
+                LazyRow(
+                    modifier = Modifier
+                ) {
+                    items(Jersey) { UIModel ->
+                        CustomizeThisCard(UIModel)
+
+                    }
+                }
+            }
+            item {
+                Text(
+                    text = "BASKETBALL BALLS",
+                    style = MaterialTheme.typography.titleMedium,
+                    modifier = Modifier
+                        .padding(20.dp,12.dp,12.dp)
+                )
+                Text(
+                    text = "The best baskeketball's  balls available.",
+                    modifier = Modifier
+                        .padding(20.dp,2.dp,2.dp))
+                LazyRow(
+                    modifier = Modifier
+                ) {
+                    items(Balls) { UIModel ->
+                        CustomizeThisCard(UIModel)
+                    }
+                }
             }
         }
     }
 }
 
-
 //TODO customize this card
 @Composable
 private fun CustomizeThisCard(uiModel: UIModel) {
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(20.dp)
-            .clip(RoundedCornerShape(12.dp)),
-        ) {
-        Column( //TODO 1
-            modifier = Modifier //TODO 2 about compose modifiers https://www.youtube.com/watch?v=XCuC_p3E0qo
-                .fillMaxWidth()
-                .padding(16.dp),
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
+    Column {
+        Card(
+            modifier = Modifier
 
-            val image: Painter = painterResource(id = uiModel.image)
-            Image(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(250.dp)
-                    .padding(16.dp)
-                    .clip(RoundedCornerShape(20.dp)),
-                painter = image,
-                alignment = Alignment.CenterStart,
-                contentDescription = "",
-                contentScale = ContentScale.Crop
-            ) // TODO 3 learn Image card about https://www.youtube.com/watch?v=KPVoQjwmWX4
-            Column(
-                modifier = Modifier
-                    .padding(start = 12.dp)
-            ) {
-                Text(
-                    text = uiModel.name,
+                .padding(20.dp)
+                .clip(RoundedCornerShape(12.dp)),
+        ) {
+            Row(
+
+            )
+            {
+                val image: Painter = painterResource(id = uiModel.image)
+                Image(
                     modifier = Modifier
-                        .clickable {}
-                )
-                Text(
-                    text = uiModel.type,)
-            // TODO 4 learn about Styling text https://www.youtube.com/watch?v=nm_LNJWHi9A
-                Button(onClick = { /*TODO*/ }) {
-                    Text(text = "Click me")
+                        .size(150.dp)
+                        .clip(shape = CircleShape)
+                        .padding(20.dp),
+                    painter = image,
+                    alignment = Alignment.CenterStart,
+                    contentDescription = "",
+                    contentScale = ContentScale.Crop
+                ) // TODO 3 learn Image card about https://www.youtube.com/watch?v=KPVoQjwmWX4
+                Column {
+                    Text(
+                        text = uiModel.name,
+                        modifier = Modifier
+                            .padding(0.dp,2.dp,2.dp)
+                    )
+                    Text(
+                        text = uiModel.type,
+                        modifier = Modifier
+                            .padding(0.dp,2.dp,2.dp)
+                    )
+                    // TODO 4 learn about Styling text https://www.youtube.com/watch?v=nm_LNJWHi9A
+                    Button(onClick = { /*TODO*/ },
+                        modifier = Modifier
+                            .padding(0.dp,2.dp,2.dp)) {
+                        Text(text = "Buy")
+                    }
                 }
             }
-
         }
+
     }
 }
 
 val basketBallItemsList = listOf(
     UIModel(
         name = "View",
-        type = "leather Ball",
+        type = "Jordans Shoes",
+        image = R.drawable.s10
+    ),
+    UIModel(
+        name = "Shoe ",
+        type = "Legit ball",
+        image = R.drawable.s1
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball hoops",
+        image = R.drawable.s2
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball rims",
+        image = R.drawable.s3
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball rocks",
+        image = R.drawable.s4
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Great sport",
+        image = R.drawable.s5
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball wilson",
+        image = R.drawable.s6
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Long lasting balls",
+        image = R.drawable.s7
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "leather",
+        image = R.drawable.s8
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Lit basketball balls",
+        image = R.drawable.s9
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "leather",
+        image = R.drawable.s10
+    ),
+    UIModel(
+        name = "Shoe",
+        type = "leather",
+        image = R.drawable.s10
+    ),
+)
+val Jersey = listOf(
+    UIModel(
+        name = "View",
+        type = "Black Jersey",
+        image = R.drawable.j1
+    ),
+    UIModel(
+        name = "Shoe ",
+        type = "Legit ball",
+        image = R.drawable.j2
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball hoops",
+        image = R.drawable.j2
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball rims",
+        image = R.drawable.j3
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball rocks",
+        image = R.drawable.j4
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Great sport",
+        image = R.drawable.j5
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Basketball wilson",
+        image = R.drawable.j6
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Long lasting balls",
+        image = R.drawable.j7
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "leather",
+        image = R.drawable.j8
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "Lit basketball balls",
+        image = R.drawable.j9
+    ),
+    UIModel(
+        name = "Shoe 1",
+        type = "leather",
+        image = R.drawable.j10
+    ),
+)
+
+val Balls = listOf(
+    UIModel(
+        name = "View",
+        type = "Black Jersey",
         image = R.drawable.b10
     ),
     UIModel(
@@ -167,13 +349,8 @@ val basketBallItemsList = listOf(
         type = "leather",
         image = R.drawable.b10
     ),
-    UIModel(
-        name = "Shoe",
-        type = "leather",
-        image = R.drawable.vituofly
-    ),
-)
 
+)
 @Preview
 @Composable
 fun PrevHomeScreen() {
