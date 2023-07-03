@@ -130,7 +130,6 @@ private fun CustomizeThisCard(uiModel: UIModel) {
     Column {
         Card(
             modifier = Modifier
-
                 .padding(20.dp)
                 .clip(RoundedCornerShape(12.dp)),
         ) {
@@ -175,63 +174,63 @@ private fun CustomizeThisCard(uiModel: UIModel) {
 
 val basketBallItemsList = listOf(
     UIModel(
-        name = "View",
-        type = "Jordans Shoes",
+        name = "Jordans",
+        type = "White Jordans",
         image = R.drawable.s10
     ),
     UIModel(
         name = "Shoe ",
-        type = "Legit ball",
+        type = "Black Shoe",
         image = R.drawable.s1
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball hoops",
+        type = "Red shoe",
         image = R.drawable.s2
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball rims",
+        type = "Pink shoe",
         image = R.drawable.s3
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball rocks",
+        type = "Orange shoe",
         image = R.drawable.s4
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Great sport",
+        type = "Maroon shoe",
         image = R.drawable.s5
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball wilson",
+        type = "White shoe",
         image = R.drawable.s6
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Long lasting balls",
+        type = "Yellow shoe",
         image = R.drawable.s7
     ),
     UIModel(
         name = "Shoe 1",
-        type = "leather",
+        type = "Pink shoe",
         image = R.drawable.s8
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Lit basketball balls",
+        type = "Black and green shoe",
         image = R.drawable.s9
     ),
     UIModel(
         name = "Shoe 1",
-        type = "leather",
+        type = "White shoe",
         image = R.drawable.s10
     ),
     UIModel(
         name = "Shoe",
-        type = "leather",
+        type = "White shoe",
         image = R.drawable.s10
     ),
 )
@@ -243,52 +242,52 @@ val Jersey = listOf(
     ),
     UIModel(
         name = "Shoe ",
-        type = "Legit ball",
+        type = "Pinl jersey",
         image = R.drawable.j2
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball hoops",
+        type = "Pink jersey",
         image = R.drawable.j2
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball rims",
+        type = "Black Jersey",
         image = R.drawable.j3
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball rocks",
+        type = "Blue Jersey",
         image = R.drawable.j4
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Great sport",
+        type = "Black Jersey",
         image = R.drawable.j5
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Basketball wilson",
+        type = "Yellow Jersey",
         image = R.drawable.j6
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Long lasting balls",
+        type = "Purple Jersey",
         image = R.drawable.j7
     ),
     UIModel(
         name = "Shoe 1",
-        type = "leather",
+        type = "Navy blue jersey",
         image = R.drawable.j8
     ),
     UIModel(
         name = "Shoe 1",
-        type = "Lit basketball balls",
+        type = "Flame Jersey",
         image = R.drawable.j9
     ),
     UIModel(
         name = "Shoe 1",
-        type = "leather",
+        type = "Blue Jersey",
         image = R.drawable.j10
     ),
 )
